@@ -1,0 +1,19 @@
+{
+  "name": "phase-3-challenge-part-2",
+  "version": "1.0.0",
+  "description": "Phase 3 Challenge Part 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pporche87/phase-3-challenge.git"
+  },
+  "author": "Patrick Porche <pporche87@gmail.com> (http://pporche87.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pporche87/phase-3-challenge/issues"
+  },
+  "homepage": "https://github.com/pporche87/phase-3-challenge#readme"
+}
