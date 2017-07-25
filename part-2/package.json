@@ -4,7 +4,10 @@
   "description": "Phase 3 Challenge Part 2",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "db:schema": "psql grocery_store < schema.sql",
+    "db:load": "psql grocery_store < load-data.sql",
+    "db:seed": "psql grocery_store < insert-data.sql",
+    "test": "mocha database/database_test.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/pporche87/phase-3-challenge/issues"
   },
-  "homepage": "https://github.com/pporche87/phase-3-challenge#readme"
+  "homepage": "https://github.com/pporche87/phase-3-challenge#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2",
+    "pg-promise": "^6.3.5"
+  }
 }
