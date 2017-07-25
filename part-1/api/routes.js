@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-router.get('/supported-operations', (req, res) => {
+router.get('/supported-operators', (req, res) => {
 	const supportedOperations = {
 		"/": "division",
 	  "+": "addition",
@@ -32,16 +32,14 @@ router.post('/compute', (req, res, next) => {
 	} else if (operator === '*') {
 		result = operands[0] * operands[1]
 	} else {
-		result = {
-			"error": `invalid operator ${operator}. Valid operators are /, +, -, *`
-		}
+		res.status(404).send({"error": `invalid operator ${operator}. Valid operators are /, +, -, *`})
 	}
 
 	if (!isNaN(result)) {
 		result = result.toFixed(2)
 	}
 
-	res.json(result)
+	res.json({ 'result': JSON.parse(result) })
 })
 
 module.exports = router
