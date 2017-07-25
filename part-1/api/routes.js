@@ -1,31 +1,47 @@
 const express = require('express')
 const router = express.Router()
 
-const supportedOperations = {
-	"/": "division",
-  "+": "addition",
-  "-": "subtration",
-  "*": "multiplication"
-}
-
 router.get('/supported-operations', (req, res) => {
-	// ==== Express application running succesfully ====
-	// res.json('Hello World')
-
-	// ==== Supported Operation route test ====
-	// res.json('/api/supported-operations')
+	const supportedOperations = {
+		"/": "division",
+	  "+": "addition",
+	  "-": "subtration",
+	  "*": "multiplication"
+	}
 
 	res.json(supportedOperations)
 })
 
-router.get('/square', (req, res) => {
-	// ==== Square route test ====
-	res.json('/api/square')
+router.get('/square?:number', (req, res) => {
+	const numberSquared =  { "result": Math.pow(req.query.number, 2) }
+
+	res.json(numberSquared)
 })
 
-router.get('/compute', (req, res) => {
-	// ==== Compute route test ====
-	res.json('/api/compute')
+router.post('/compute', (req, res, next) => {
+	let result
+	const operator = req.body.operator
+	const operands = req.body.operands
+
+	if (operator === '/') {
+		result = operands[0] / operands[1]
+	} else if (operator === '+') {
+		result = operands[0] + operands[1]
+	} else if (operator === '-') {
+		result = operands[0] - operands[1]
+	} else if (operator === '*') {
+		result = operands[0] * operands[1]
+	} else {
+		result = {
+			"error": `invalid operator ${operator}. Valid operators are /, +, -, *`
+		}
+	}
+
+	if (!isNaN(result)) {
+		result = result.toFixed(2)
+	}
+
+	res.json(result)
 })
 
 module.exports = router

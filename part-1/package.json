@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/pporche87/phase-3-challenge/issues"
   },
-  "homepage": "https://github.com/pporche87/phase-3-challenge#readme"
+  "homepage": "https://github.com/pporche87/phase-3-challenge#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2"
+  }
 }
