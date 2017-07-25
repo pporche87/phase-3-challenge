@@ -4,7 +4,7 @@
   "description": "Phase 3 Challenge Part 1",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/pporche87/phase-3-challenge#readme",
   "dependencies": {
-    "body-parser": "^1.17.2"
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "nodemon": "^1.11.0"
   }
 }
