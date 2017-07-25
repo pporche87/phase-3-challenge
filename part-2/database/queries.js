@@ -12,7 +12,7 @@ const queries = {
 	},
 	cheapItems: () => {
 		return `
-			SELECT (id, name, price) FROM items
+			SELECT id, name, price FROM items
 			WHERE price < '10'
 			ORDER BY price ASC
 		`
