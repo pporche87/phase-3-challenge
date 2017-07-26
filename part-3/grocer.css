@@ -178,3 +178,15 @@ body {
 	background-color: #aaa;
 	cursor: pointer
 }
+
+.footer {
+	display: flex;
+	flex-direction: row;
+}
+
+.footer .total-text,
+#total {
+	margin-left: auto;
+	font-weight: bold;
+	font-size: 18px;
+}

@@ -1,15 +1,19 @@
 let shoppingCart = []
 let total = 0
+let itemInCart = {
+	name: '',
+	price: 0
+}
+const modal = document.querySelector('#shoppingCart')
+const cartButton = document.querySelector('#cart-button')
+const close = document.querySelector('#close')
+const clear = document.querySelector('#clear')
+const contentList = document.querySelector('#content-list')
 
 let addToCart = document.querySelectorAll('li button')
 let cartItemCount = document.querySelector('#cart-item-count')
 
 cartItemCount.innerHTML = shoppingCart.length
-
-let itemInCart = {
-	name: '',
-	price: 0
-}
 
 for (let i = 0; i < addToCart.length; i++) {
 	addToCart[i].addEventListener('click', () => {
@@ -19,6 +23,7 @@ for (let i = 0; i < addToCart.length; i++) {
 
 	})
 }
+
 const addItemToCartArray = (className) => {
 	let itemSelector = document.querySelectorAll('.' + className)
 	itemInCart.name = itemSelector[0].innerHTML
@@ -31,12 +36,6 @@ const addItemToCartArray = (className) => {
 		price: 0
 	}
 }
-
-const modal = document.querySelector('#shoppingCart')
-
-const cartButton = document.querySelector('#cart-button')
-
-const close = document.querySelector('#close')
 
 cartButton.addEventListener('click', () => {
 	modal.style.display = 'block'
@@ -70,11 +69,7 @@ const clearCart = () => {
 	document.querySelector('#cart-item-count').innerHTML = 0
 }
 
-const clear = document.querySelector('#clear')
-
 clear.addEventListener('click', () => {
 	console.log('clear');
 	clearCart()
 })
-
-const contentList = document.querySelector('#content-list')
